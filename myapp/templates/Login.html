@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Coding by CodingLab || www.codinglabweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup Form</title>
+    <link rel="stylesheet" href="{% static 'ulogin/style.css' %}" />
+  </head>
+  <body>
+    <section class="wrapper">
+      <div class="form signup">
+        <header>Signup</header>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input name="name" type="text" placeholder="Full name" required  />
+          <input name="username" type="text" placeholder="user name" required />
+          <input name="email" type="text" placeholder="Email address" required />
+          <input name="phn" type="number" placeholder="Phone Number" required />
+          <input name="pwd" type="password" placeholder="Password" required />
+          <div class="checkbox">
+            <input type="checkbox" id="signupCheck" />
+            <label for="signupCheck">I accept all terms & conditions</label>
+          </div>
+          <input type="submit" value="Signup" name="s1" />
+        </form>
+      </div>
+
+      <div class="form login">
+        <header>Login</header>
+        <form method="post">
+          {% csrf_token %}
+          <input type="text" placeholder="User Name" name="t1" required />
+          <input type="password" placeholder="Password" name="t2" required />
+
+          <input type="submit" value="Login"  name="s2"/>
+        </form>
+      </div>
+
+      <script>
+        const wrapper = document.querySelector(".wrapper"),
+          signupHeader = document.querySelector(".signup header"),
+          loginHeader = document.querySelector(".login header");
+
+        loginHeader.addEventListener("click", () => {
+          wrapper.classList.add("active");
+        });
+        signupHeader.addEventListener("click", () => {
+          wrapper.classList.remove("active");
+        });
+      </script>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'tabb/css/style.css' %}">
+
+	</head>
+	<body>
+	<nav>
+  		<div class="logo">
+
+  		</div>
+  		<div class="back-button">
+    		<a href="/up/"><button>Back</button></a>
+  		</div>
+	</nav>
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">View Booking</h2>
+				</div>
+			</div>
+	<div class="row">
+
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-primary">
+						    <tr>
+						      <th>Booking No</th>
+						      <th>User Name</th>
+						      <th>Pet Name</th>
+								<th>Pet Species</th>
+							  <th>Booking Date</th>
+							  <th>Booking Time</th>
+							  <th>Service Type</th>
+							  <th>Charge</th>
+							  <th>Status</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+							{% for j in mrec %}
+						    <tr>
+						      <th scope="row">{{j.id}}</th>
+						      <td>{{j.username}}</td>
+						      <td>{{j.petname}}</td>
+								<td>{{j.petspecies}}</td>
+							  <td>{{j.bkdate}}</td>
+							  <td>{{j.bktime}}</td>
+							  <td>{{j.service}}</td>
+							  <td>{{j.charge}}</td>
+							  <td>{{j.status}}</td>
+						    </tr>
+						  {% endfor %}
+
+
+						  </tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<script src="{% static 'tabb/js/jquery.min.js' %}"></script>
+  <script src="{% static 'tabb/js/popper.js' %}"></script>
+  <script src="{% static 'tabb/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'tabb/js/main.js' %}"></script>
+
+	</body>
+</html>
+
